@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Ask me a question...</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>ask me a question</title>
+    <!-- Google Font Link for Roboto (as an alternative to Calibri) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <!-- Link to External CSS File -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <button id="questionButton">Give me a question</button>
-    <p id="question"></p>
-    <script src="script.js"></script>
+
+<div class="container">
+    <!-- Ask a Question Button -->
+    <button id="showQuestionButton" class="button">Ask me a question</button>
+    <!-- Placeholder for the Question -->
+    <div id="question">ask me a question...</div>
+    <!-- Copy Question Button -->
+    <button id="copyQuestionButton" class="button">copy question</button>
+</div>
+
+<!-- Link to External JavaScript File -->
+<script src="js/script.js"></script>
+<script>
+    // Example JavaScript for "Copy question" functionality
+    document.getElementById('copyQuestionButton').addEventListener('click', function() {
+        const questionText = document.getElementById('question').innerText;
+        navigator.clipboard.writeText(questionText).then(() => {
+            alert('Question copied to clipboard!');
+        }).catch(err => {
+            console.error('Failed to copy text:', err);
+        });
+    });
+</script>
+
 </body>
 </html>
